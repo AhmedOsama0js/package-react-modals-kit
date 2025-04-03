@@ -2,8 +2,9 @@
   "name": "react-modals-kit",
   "version": "1.0.0",
   "description": "A lightweight and customizable modal library for React, providing various types of modals with simple API",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "babel src --out-dir dist --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -24,12 +25,23 @@
   "author": "Ahmed Osama <ahmedosama.aw@gmail.com>",
   "license": "MIT",
   "type": "commonjs",
-  "types": "./index.d.ts",
+  "types": "dist/index.d.ts",
   "dependencies": {
+    "prop-types": "^15.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedOsama0js/package-react-modals-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AhmedOsama0js/package-react-modals-kit/issues"
+  },
+  "homepage": "https://github.com/AhmedOsama0js/package-react-modals-kit#readme",
   "devDependencies": {
-    "prop-types": "^15.8.0"
+    "@babel/cli": "^7.27.0",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3"
   }
 }

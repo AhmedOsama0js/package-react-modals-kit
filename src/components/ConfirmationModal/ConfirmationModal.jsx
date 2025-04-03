@@ -1,3 +1,4 @@
+import React from "react";
 import MainModal from "../MainModal/MainModal";
 import css from "../ConfirmationModal/ConfirmationModal.module.css";
 import PropTypes from "prop-types";
