@@ -1,6 +1,3 @@
-بالطبع، إليك النسخة الكاملة والمحدثة من ملف `README.md` بعد تحسين التنسيق وإصلاح الأخطاء المحتملة:
-
-````markdown
 # React Modals Kit
 
 [![npm version](https://img.shields.io/npm/v/react-modals-kit "npm version")](https://www.npmjs.com/package/react-modals-kit)
@@ -43,7 +40,6 @@ To install the package, run:
 ```bash
 npm install react-modals-kit
 ```
-````
 
 Alternatively, using Yarn:
 
