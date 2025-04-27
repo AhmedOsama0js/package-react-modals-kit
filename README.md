@@ -59,14 +59,15 @@ function App() {
   return (
     <div>
       <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
-
       {isModalOpen && (
         <MainModal
           setModel={setIsModalOpen}
-          content={<div>Your modal content goes here!</div>}
+          // content={<div>Your modal content goes here!</div>} (option 1)
           closeOnOverlayClick={true}
           bodyColor="#fff"
-        />
+        >
+          <div>Your modal content goes here!</div> {/*(option 2) */}
+        </MainModal>
       )}
     </div>
   );
@@ -102,11 +103,11 @@ function App() {
           setModel={setIsModalOpen}
           onConfirm={confirmAction}
           message="Are you sure you want to proceed?"
-          confirmText="Yes"
-          cancelText="No"
-          confirmBtnColor="#4CAF50"
-          cancelBtnColor="#F44336"
-          messageColor="#333"
+          confirmText="Yes" // (optional)
+          cancelText="No" // (optional)
+          confirmBtnColor="#16792dd5" // (optional)
+          cancelBtnColor="#da2739d3" // (optional)
+          messageColor="#333" // (optional)
         />
       )}
     </div>
@@ -135,11 +136,11 @@ function App() {
         <ToastMain
           setToast={setShowToast}
           message="This is a success message!"
-          duration={3000}
-          type="success"
-          position="top-right"
-          showCloseButton={true}
-          showProgressBar={true}
+          duration={3000} // (optional)
+          type="success" // (optional)
+          position="bottom-right" // (optional)
+          showCloseButton={true} // (optional)
+          showProgressBar={true} // (optional)
         />
       )}
     </div>
@@ -156,22 +157,23 @@ export default App;
 | Prop                  | Type     | Default | Description                                     |
 | --------------------- | -------- | ------- | ----------------------------------------------- |
 | `setModel`            | `func`   | -       | Function to control modal visibility            |
-| `content`             | `node`   | -       | Content displayed inside the modal              |
+| `content`             | `node`   | -       | Content displayed inside the modal (option 1)   |
+| `children`            | `node`   | -       | Content displayed inside the modal (option 2)   |
 | `closeOnOverlayClick` | `bool`   | `true`  | Determines if clicking outside closes the modal |
 | `bodyColor`           | `string` | `#fff`  | Background color of the modal body              |
 
 ### ConfirmationModal
 
-| Prop              | Type     | Default   | Description                          |
-| ----------------- | -------- | --------- | ------------------------------------ |
-| `setModel`        | `func`   | -         | Function to control modal visibility |
-| `onConfirm`       | `func`   | -         | Function triggered upon confirmation |
-| `message`         | `string` | -         | Message displayed inside the modal   |
-| `confirmText`     | `string` | `Yes`     | Label for the confirm button         |
-| `cancelText`      | `string` | `No`      | Label for the cancel button          |
-| `confirmBtnColor` | `string` | `#4CAF50` | Color of the confirm button          |
-| `cancelBtnColor`  | `string` | `#F44336` | Color of the cancel button           |
-| `messageColor`    | `string` | `#000`    | Text color of the message            |
+| Prop              | Type     | Default     | Description                          |
+| ----------------- | -------- | ----------- | ------------------------------------ |
+| `setModel`        | `func`   | -           | Function to control modal visibility |
+| `onConfirm`       | `func`   | -           | Function triggered upon confirmation |
+| `message`         | `string` | -           | Message displayed inside the modal   |
+| `confirmText`     | `string` | `Yes`       | Label for the confirm button         |
+| `cancelText`      | `string` | `No`        | Label for the cancel button          |
+| `confirmBtnColor` | `string` | `#16792dd5` | Color of the confirm button          |
+| `cancelBtnColor`  | `string` | `#da2739d3` | Color of the cancel button           |
+| `messageColor`    | `string` | `#000`      | Text color of the message            |
 
 ### ToastMain
 
@@ -187,7 +189,7 @@ export default App;
 | `pauseOnHover`    | `bool`   | `false`     | Determines if the toast should pause on hover                                                                              |
 | `backgroundColor` | `string` | `#333`      | Background color of the toast                                                                                              |
 | `textColor`       | `string` | `#fff`      | Text color of the toast                                                                                                    |
-| `progressColor`   | `string` | `#4CAF50`   | Color of the progress bar                                                                                                  |
+| `progressColor`   | `string` | `#000`      | Color of the progress bar                                                                                                  |
 | `closeBtnColor`   | `string` | `#fff`      | Color of the close button                                                                                                  |
 
 ## Customization

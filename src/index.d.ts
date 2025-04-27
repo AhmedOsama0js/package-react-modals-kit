@@ -2,14 +2,10 @@ import { ReactNode } from "react";
 
 export interface MainModalProps {
   setModel: (state: boolean) => void; // دالة لضبط حالة المودال
-  content: ReactNode; // محتوى المودال
+  content?: ReactNode; // محتوى المودال يمكن تمريره هنا
+  children?: ReactNode; // أو يمكن تمرير محتوى المودال عبر children
   closeOnOverlayClick?: boolean; // غلق المودال عند الضغط على الخلفية
-  closeOnEsc?: boolean; // غلق المودال عند الضغط على زر Esc
   bodyColor?: string; // لون خلفية المودال
-  width?: string; // عرض المودال
-  height?: string; // ارتفاع المودال
-  animationDuration?: number; // مدة الأنيميشن لفتح المودال
-  onClose?: () => void; // دالة يتم استدعاؤها عند غلق المودال
 }
 
 export interface ConfirmModalProps {

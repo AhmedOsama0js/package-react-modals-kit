@@ -19,7 +19,9 @@
   font-weight: 600;
   margin-bottom: 20px;
   line-height: 1.4;
+  text-align: center;
 }
+
 .cancelBtn,
 .confirmBtn {
   padding: 12px 24px;
