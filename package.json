@@ -1,6 +1,6 @@
 {
   "name": "react-modals-kit",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A lightweight and customizable modal library for React, providing various types of modals with simple API",
   "main": "dist/index.js",
   "scripts": {
@@ -20,7 +20,16 @@
     "react-hooks",
     "react-portal-modal",
     "custom-modal",
-    "popup-dialog"
+    "popup-dialog",
+    "react-ui-library",
+    "react-popup",
+    "react-dialog",
+    "modal-library",
+    "react-components",
+    "react-modal-kit",
+    "react-ux",
+    "react-accessibility",
+    "modal-component"
   ],
   "author": "Ahmed Osama <ahmedosama.aw@gmail.com>",
   "license": "MIT",

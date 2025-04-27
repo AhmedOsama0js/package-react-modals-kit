@@ -23,7 +23,7 @@ function BodyConfirmationModal(_ref) {
     confirmBtnColor = _ref.confirmBtnColor,
     cancelBtnColor = _ref.cancelBtnColor,
     messageColor = _ref.messageColor;
-  var text = msg || "هل انت متأكد من حذف هذا العنصر ؟";
+  var text = msg || "Are you sure you want to do this?";
   var NoHandler = function NoHandler() {
     setModel(false);
   };

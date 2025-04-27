@@ -1,10 +1,10 @@
-إليك التحديث المطلوب لملف `README.md`:
+بالطبع، إليك النسخة الكاملة والمحدثة من ملف `README.md` بعد تحسين التنسيق وإصلاح الأخطاء المحتملة:
 
 ````markdown
 # React Modals Kit
 
-[![npm version](https://img.shields.io/npm/v/react-modals-kit)](https://www.npmjs.com/package/react-modals-kit)
-[![License](https://img.shields.io/npm/l/react-modals-kit)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/react-modals-kit "npm version")](https://www.npmjs.com/package/react-modals-kit)
+[![License](https://img.shields.io/npm/l/react-modals-kit "MIT License")](https://opensource.org/licenses/MIT)
 
 A powerful and customizable modal component library for React applications. This library provides multiple modal types, including general-purpose modals and confirmation modals, to enhance your user interface effortlessly.
 
@@ -21,6 +21,8 @@ A powerful and customizable modal component library for React applications. This
 - [Contributing](#contributing)
 - [License](#license)
 
+---
+
 ## Features
 
 - **Main Modal**: A flexible modal for displaying content with customizable options.
@@ -31,6 +33,8 @@ A powerful and customizable modal component library for React applications. This
 - **React Portal Support**: Leverages React's `createPortal` for rendering outside the component hierarchy.
 - **Accessibility Enhancements**: Built-in focus management and keyboard navigation.
 - **Lightweight**: Minimal footprint with no dependencies other than React.
+
+---
 
 ## Installation
 
@@ -46,6 +50,8 @@ Alternatively, using Yarn:
 ```bash
 yarn add react-modals-kit
 ```
+
+---
 
 ## Usage
 
@@ -78,6 +84,8 @@ function App() {
 
 export default App;
 ```
+
+---
 
 ### ConfirmationModal
 
@@ -120,6 +128,8 @@ function App() {
 export default App;
 ```
 
+---
+
 ### ToastMain
 
 The `ToastMain` component provides a customizable toast notification system that allows you to display temporary messages for the user.
@@ -153,46 +163,54 @@ function App() {
 export default App;
 ```
 
+---
+
 ## Props
 
 ### MainModal
 
-| Prop                  | Type     | Default | Description                                     |
-| --------------------- | -------- | ------- | ----------------------------------------------- |
-| `setModel`            | `func`   | -       | Function to control modal visibility            |
-| `content`             | `node`   | -       | Content displayed inside the modal              |
-| `closeOnOverlayClick` | `bool`   | `true`  | Determines if clicking outside closes the modal |
-| `bodyColor`           | `string` | `#fff`  | Background color of the modal body              |
+|         Prop          |   Type   | Default | Description                                     |
+| :-------------------: | :------: | :-----: | :---------------------------------------------- |
+|      `setModel`       |  `func`  |    -    | Function to control modal visibility            |
+|       `content`       |  `node`  |    -    | Content displayed inside the modal              |
+| `closeOnOverlayClick` |  `bool`  | `true`  | Determines if clicking outside closes the modal |
+|      `bodyColor`      | `string` | `#fff`  | Background color of the modal body              |
+
+---
 
 ### ConfirmationModal
 
-| Prop              | Type     | Default   | Description                          |
-| ----------------- | -------- | --------- | ------------------------------------ |
-| `setModel`        | `func`   | -         | Function to control modal visibility |
-| `onConfirm`       | `func`   | -         | Function triggered upon confirmation |
-| `message`         | `string` | -         | Message displayed inside the modal   |
-| `confirmText`     | `string` | `Yes`     | Label for the confirm button         |
-| `cancelText`      | `string` | `No`      | Label for the cancel button          |
-| `confirmBtnColor` | `string` | `#4CAF50` | Color of the confirm button          |
-| `cancelBtnColor`  | `string` | `#F44336` | Color of the cancel button           |
-| `messageColor`    | `string` | `#000`    | Text color of the message            |
+|       Prop        |   Type   |  Default  |             Description              |
+| :---------------: | :------: | :-------: | :----------------------------------: |
+|    `setModel`     |  `func`  |     -     | Function to control modal visibility |
+|    `onConfirm`    |  `func`  |     -     | Function triggered upon confirmation |
+|     `message`     | `string` |     -     |  Message displayed inside the modal  |
+|   `confirmText`   | `string` |   `Yes`   |     Label for the confirm button     |
+|   `cancelText`    | `string` |   `No`    |     Label for the cancel button      |
+| `confirmBtnColor` | `string` | `#4CAF50` |     Color of the confirm button      |
+| `cancelBtnColor`  | `string` | `#F44336` |      Color of the cancel button      |
+|  `messageColor`   | `string` |  `#000`   |      Text color of the message       |
+
+---
 
 ### ToastMain
 
-| Prop              | Type     | Default     | Description                                                                                                                |
-| ----------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `setToast`        | `func`   | -           | Function to control toast visibility                                                                                       |
-| `message`         | `string` | -           | Message displayed in the toast                                                                                             |
-| `duration`        | `number` | `3000`      | Duration for which the toast will be visible (in ms)                                                                       |
-| `type`            | `string` | `default`   | Type of toast notification (`default`, `success`, `error`, `warning`, `info`)                                              |
-| `position`        | `string` | `top-right` | Position of the toast notification (`top-right`, `top-left`, `bottom-right`, `bottom-left`, `top-center`, `bottom-center`) |
-| `showCloseButton` | `bool`   | `false`     | Determines if a close button should be shown                                                                               |
-| `showProgressBar` | `bool`   | `false`     | Determines if a progress bar should be shown                                                                               |
-| `pauseOnHover`    | `bool`   | `false`     | Determines if the toast should pause on hover                                                                              |
-| `backgroundColor` | `string` | `#333`      | Background color of the toast                                                                                              |
-| `textColor`       | `string` | `#fff`      | Text color of the toast                                                                                                    |
-| `progressColor`   | `string` | `#4CAF50`   | Color of the progress bar                                                                                                  |
-| `closeBtnColor`   | `string` | `#fff`      | Color of the close button                                                                                                  |
+|       Prop        |   Type   |   Default   |                                                        Description                                                         |
+| :---------------: | :------: | :---------: | :------------------------------------------------------------------------------------------------------------------------: |
+|    `setToast`     |  `func`  |      -      |                                            Function to control toast visibility                                            |
+|     `message`     | `string` |      -      |                                               Message displayed in the toast                                               |
+|    `duration`     | `number` |   `3000`    |                                    Duration for which the toast will be visible (in ms)                                    |
+|      `type`       | `string` |  `default`  |                       Type of toast notification (`default`, `success`, `error`, `warning`, `info`)                        |
+|    `position`     | `string` | `top-right` | Position of the toast notification (`top-right`, `top-left`, `bottom-right`, `bottom-left`, `top-center`, `bottom-center`) |
+| `showCloseButton` |  `bool`  |   `false`   |                                        Determines if a close button should be shown                                        |
+| `showProgressBar` |  `bool`  |   `false`   |                                        Determines if a progress bar should be shown                                        |
+|  `pauseOnHover`   |  `bool`  |   `false`   |                                       Determines if the toast should pause on hover                                        |
+| `backgroundColor` | `string` |   `#333`    |                                               Background color of the toast                                                |
+|    `textColor`    | `string` |   `#fff`    |                                                  Text color of the toast                                                   |
+|  `progressColor`  | `string` |  `#4CAF50`  |                                                 Color of the progress bar                                                  |
+|  `closeBtnColor`  | `string` |   `#fff`    |                                                 Color of the close button                                                  |
+
+---
 
 ## Customization
 
@@ -215,6 +233,8 @@ You can customize modal styles by modifying CSS in `MainModal.module.css`, `Conf
 }
 ```
 
+---
+
 ## Contributing
 
 We welcome contributions! If you'd like to improve the library or introduce new features, feel free to fork the repository and submit a pull request.
@@ -227,6 +247,12 @@ We welcome contributions! If you'd like to improve the library or introduce new 
 4. Push to your branch (`git push origin feature-branch`)
 5. Open a pull request
 
+---
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+```
+
+```
