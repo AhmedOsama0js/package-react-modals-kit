@@ -11,6 +11,13 @@ export interface ConfirmModalProps {
   message: string;
   onConfirm: () => void;
   onCancel?: () => void;
+  closeOnOverlayClick?: boolean;
+  bodyColor?: string;
+  confirmText?: string;
+  cancelText?: string;
+  messageColor?: string;
+  confirmBtnColor?: string;
+  cancelBtnColor?: string;
 }
 
 declare const MainModal: (props: MainModalProps) => JSX.Element;

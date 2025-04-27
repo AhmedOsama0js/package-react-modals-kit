@@ -13,7 +13,7 @@ export function BodyConfirmationModal({
   cancelBtnColor,
   messageColor,
 }) {
-  const text = msg || "هل انت متأكد من حذف هذا العنصر ؟";
+  const text = msg || "Are you sure you want to do this?";
 
   const NoHandler = () => {
     setModel(false);
@@ -57,8 +57,8 @@ export default function ConfirmationModal({
   setModel,
   onConfirm,
   message,
-  confirmText = "نعم",
-  cancelText = "لا",
+  confirmText = "yes",
+  cancelText = "no",
   confirmBtnColor = "#16792dd5",
   cancelBtnColor = "#da2739d3",
   closeOnOverlayClick = true,

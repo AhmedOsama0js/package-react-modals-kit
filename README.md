@@ -1,3 +1,6 @@
+إليك التحديث المطلوب لملف `README.md`:
+
+````markdown
 # React Modals Kit
 
 [![npm version](https://img.shields.io/npm/v/react-modals-kit)](https://www.npmjs.com/package/react-modals-kit)
@@ -12,6 +15,7 @@ A powerful and customizable modal component library for React applications. This
 - [Usage](#usage)
   - [MainModal](#mainmodal)
   - [ConfirmationModal](#confirmationmodal)
+  - [ToastMain](#toastmain)
 - [Props](#props)
 - [Customization](#customization)
 - [Contributing](#contributing)
@@ -21,7 +25,8 @@ A powerful and customizable modal component library for React applications. This
 
 - **Main Modal**: A flexible modal for displaying content with customizable options.
 - **Confirmation Modal**: A modal designed for confirmation actions like deletion or form submission.
-- **Customizable Styling**: Easily adapt the appearance of modals to fit your design.
+- **Toast Notifications**: A simple and customizable toast notification system.
+- **Customizable Styling**: Easily adapt the appearance of modals and toast notifications to fit your design.
 - **Overlay Click Handling**: Configurable option to close modals when clicking outside.
 - **React Portal Support**: Leverages React's `createPortal` for rendering outside the component hierarchy.
 - **Accessibility Enhancements**: Built-in focus management and keyboard navigation.
@@ -34,6 +39,7 @@ To install the package, run:
 ```bash
 npm install react-modals-kit
 ```
+````
 
 Alternatively, using Yarn:
 
@@ -114,6 +120,39 @@ function App() {
 export default App;
 ```
 
+### ToastMain
+
+The `ToastMain` component provides a customizable toast notification system that allows you to display temporary messages for the user.
+
+```jsx
+import React, { useState } from "react";
+import { ToastMain } from "react-modals-kit";
+
+function App() {
+  const [showToast, setShowToast] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setShowToast(true)}>Show Toast</button>
+
+      {showToast && (
+        <ToastMain
+          setToast={setShowToast}
+          message="This is a success message!"
+          duration={3000}
+          type="success"
+          position="top-right"
+          showCloseButton={true}
+          showProgressBar={true}
+        />
+      )}
+    </div>
+  );
+}
+
+export default App;
+```
+
 ## Props
 
 ### MainModal
@@ -138,9 +177,26 @@ export default App;
 | `cancelBtnColor`  | `string` | `#F44336` | Color of the cancel button           |
 | `messageColor`    | `string` | `#000`    | Text color of the message            |
 
+### ToastMain
+
+| Prop              | Type     | Default     | Description                                                                                                                |
+| ----------------- | -------- | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `setToast`        | `func`   | -           | Function to control toast visibility                                                                                       |
+| `message`         | `string` | -           | Message displayed in the toast                                                                                             |
+| `duration`        | `number` | `3000`      | Duration for which the toast will be visible (in ms)                                                                       |
+| `type`            | `string` | `default`   | Type of toast notification (`default`, `success`, `error`, `warning`, `info`)                                              |
+| `position`        | `string` | `top-right` | Position of the toast notification (`top-right`, `top-left`, `bottom-right`, `bottom-left`, `top-center`, `bottom-center`) |
+| `showCloseButton` | `bool`   | `false`     | Determines if a close button should be shown                                                                               |
+| `showProgressBar` | `bool`   | `false`     | Determines if a progress bar should be shown                                                                               |
+| `pauseOnHover`    | `bool`   | `false`     | Determines if the toast should pause on hover                                                                              |
+| `backgroundColor` | `string` | `#333`      | Background color of the toast                                                                                              |
+| `textColor`       | `string` | `#fff`      | Text color of the toast                                                                                                    |
+| `progressColor`   | `string` | `#4CAF50`   | Color of the progress bar                                                                                                  |
+| `closeBtnColor`   | `string` | `#fff`      | Color of the close button                                                                                                  |
+
 ## Customization
 
-You can customize modal styles by modifying CSS in `MainModal.module.css` and `ConfirmationModal.module.css`. Alternatively, use inline styles via props like `bodyColor` and `messageColor`.
+You can customize modal styles by modifying CSS in `MainModal.module.css`, `ConfirmationModal.module.css`, and `ToastMain.module.css`. Alternatively, use inline styles via props like `bodyColor`, `messageColor`, etc.
 
 ```css
 /* Example: Customizing modal styles */

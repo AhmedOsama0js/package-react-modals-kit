@@ -23,46 +23,82 @@ function MainModal(_ref) {
     content = _ref.content,
     _ref$closeOnOverlayCl = _ref.closeOnOverlayClick,
     closeOnOverlayClick = _ref$closeOnOverlayCl === void 0 ? true : _ref$closeOnOverlayCl,
+    _ref$closeOnEsc = _ref.closeOnEsc,
+    closeOnEsc = _ref$closeOnEsc === void 0 ? true : _ref$closeOnEsc,
     _ref$bodyColor = _ref.bodyColor,
-    bodyColor = _ref$bodyColor === void 0 ? "#fff" : _ref$bodyColor;
-  var _useState = (0, _react.useState)(true),
+    bodyColor = _ref$bodyColor === void 0 ? "#fff" : _ref$bodyColor,
+    _ref$width = _ref.width,
+    width = _ref$width === void 0 ? "auto" : _ref$width,
+    _ref$height = _ref.height,
+    height = _ref$height === void 0 ? "auto" : _ref$height,
+    _ref$animationDuratio = _ref.animationDuration,
+    animationDuration = _ref$animationDuratio === void 0 ? 300 : _ref$animationDuratio,
+    _ref$onClose = _ref.onClose,
+    onClose = _ref$onClose === void 0 ? function () {} : _ref$onClose;
+  var _useState = (0, _react.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    opening = _useState2[0],
-    setOpening = _useState2[1];
+    isClosing = _useState2[0],
+    setIsClosing = _useState2[1];
+  var modalRef = (0, _react.useRef)(null);
   (0, _react.useEffect)(function () {
     document.body.classList.add("stop-scrolling");
+    if (modalRef.current) {
+      modalRef.current.focus();
+    }
+    var handleKeyDown = function handleKeyDown(e) {
+      if (e.key === "Escape" && closeOnEsc) {
+        handleClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
     return function () {
       document.body.classList.remove("stop-scrolling");
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
-  var handlePopup = function handlePopup() {
-    setModel(false);
-    setOpening(false);
+  }, [closeOnEsc]);
+  var handleClose = function handleClose() {
+    setIsClosing(true);
+    setTimeout(function () {
+      setModel(false);
+      onClose();
+    }, animationDuration);
   };
   var handleOverlayClick = function handleOverlayClick() {
     if (closeOnOverlayClick) {
-      handlePopup();
+      handleClose();
     }
   };
-  if (!opening) return null;
   return /*#__PURE__*/_reactDom["default"].createPortal(/*#__PURE__*/_react["default"].createElement("div", {
-    className: _MainModalModule["default"].container
+    className: "".concat(_MainModalModule["default"].container, " ").concat(isClosing ? _MainModalModule["default"].closing : _MainModalModule["default"].opening),
+    style: {
+      "--animation-duration": "".concat(animationDuration, "ms")
+    },
+    role: "dialog",
+    "aria-modal": "true"
   }, /*#__PURE__*/_react["default"].createElement("div", {
     onClick: handleOverlayClick,
-    className: _MainModalModule["default"].overlay
+    className: _MainModalModule["default"].overlay,
+    "aria-hidden": "true"
   }), /*#__PURE__*/_react["default"].createElement("div", {
     className: _MainModalModule["default"].body,
     style: {
-      backgroundColor: bodyColor
-    }
+      backgroundColor: bodyColor,
+      width: width,
+      height: height,
+      maxWidth: "100%",
+      maxHeight: "90vh"
+    },
+    ref: modalRef,
+    tabIndex: -1
   }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: _MainModalModule["default"].hight
-  }, content), /*#__PURE__*/_react["default"].createElement("span", {
-    onClick: handlePopup,
-    className: _MainModalModule["default"].btn
+    className: _MainModalModule["default"].content
+  }, content), /*#__PURE__*/_react["default"].createElement("button", {
+    onClick: handleClose,
+    className: _MainModalModule["default"].closeBtn,
+    "aria-label": "close"
   }, /*#__PURE__*/_react["default"].createElement("svg", {
-    width: "30",
-    height: "30",
+    width: "24",
+    height: "24",
     viewBox: "0 0 24 24",
     className: _MainModalModule["default"].icon
   }, /*#__PURE__*/_react["default"].createElement("path", {
@@ -73,5 +109,11 @@ function MainModal(_ref) {
 MainModal.propTypes = {
   setModel: _propTypes["default"].func.isRequired,
   content: _propTypes["default"].node.isRequired,
-  closeOnOverlayClick: _propTypes["default"].bool
+  closeOnOverlayClick: _propTypes["default"].bool,
+  closeOnEsc: _propTypes["default"].bool,
+  bodyColor: _propTypes["default"].string,
+  width: _propTypes["default"].string,
+  height: _propTypes["default"].string,
+  animationDuration: _propTypes["default"].number,
+  onClose: _propTypes["default"].func
 };
