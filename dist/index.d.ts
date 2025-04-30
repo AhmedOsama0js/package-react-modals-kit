@@ -1,12 +1,22 @@
 import { ReactNode } from "react";
 
-export interface MainModalProps {
-  setModel: (state: boolean) => void; // دالة لضبط حالة المودال
-  content?: ReactNode; // محتوى المودال يمكن تمريره هنا
-  children?: ReactNode; // أو يمكن تمرير محتوى المودال عبر children
-  closeOnOverlayClick?: boolean; // غلق المودال عند الضغط على الخلفية
-  bodyColor?: string; // لون خلفية المودال
-}
+type BaseProps = {
+  setModel: (state: boolean) => void;
+  closeOnOverlayClick?: boolean;
+  bodyColor?: string;
+};
+
+type WithContent = {
+  content: ReactNode;
+  children?: never;
+};
+
+type WithChildren = {
+  children: ReactNode;
+  content?: never;
+};
+
+export type MainModalProps = BaseProps & (WithContent | WithChildren);
 
 export interface ConfirmModalProps {
   setModel: (state: boolean) => void; // دالة لضبط حالة المودال

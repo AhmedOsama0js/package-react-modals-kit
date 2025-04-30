@@ -73,8 +73,17 @@ function MainModal(_ref) {
 }
 MainModal.propTypes = {
   setModel: _propTypes["default"].func.isRequired,
-  content: _propTypes["default"].node.isRequired,
-  children: _propTypes["default"].node.isRequired,
+  content: _propTypes["default"].node,
+  children: _propTypes["default"].node,
   closeOnOverlayClick: _propTypes["default"].bool,
   bodyColor: _propTypes["default"].string
 };
+if (process.env.NODE_ENV !== "production") {
+  var oneOfContentOrChildren = function oneOfContentOrChildren(props, propName, componentName) {
+    if (!props.content && !props.children) {
+      return new Error("One of 'content' or 'children' is required in '".concat(componentName, "'."));
+    }
+  };
+  MainModal.propTypes.content = oneOfContentOrChildren;
+  MainModal.propTypes.children = oneOfContentOrChildren;
+}

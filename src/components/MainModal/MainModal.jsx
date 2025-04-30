@@ -58,8 +58,21 @@ export default function MainModal({
 
 MainModal.propTypes = {
   setModel: PropTypes.func.isRequired,
-  content: PropTypes.node.isRequired,
-  children: PropTypes.node.isRequired,
+  content: PropTypes.node,
+  children: PropTypes.node,
   closeOnOverlayClick: PropTypes.bool,
   bodyColor: PropTypes.string,
 };
+
+if (process.env.NODE_ENV !== "production") {
+  const oneOfContentOrChildren = (props, propName, componentName) => {
+    if (!props.content && !props.children) {
+      return new Error(
+        `One of 'content' or 'children' is required in '${componentName}'.`
+      );
+    }
+  };
+
+  MainModal.propTypes.content = oneOfContentOrChildren;
+  MainModal.propTypes.children = oneOfContentOrChildren;
+}
